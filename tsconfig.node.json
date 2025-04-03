@@ -19,9 +19,26 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    /* Alias paths */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "components/*": [
+        "./src/components/*"
+      ],
+      "screens/*": [
+        "./src/screens/*"
+      ],
+      "assets/*": [
+        "./src/assets/*"
+      ]
+    }
   },
   "include": [
-    "vite.config.ts"
+    "vite.config.ts",
+    "src/**/*"
   ]
 }
