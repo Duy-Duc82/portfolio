@@ -230,6 +230,15 @@ svg {
     width: 15px;
     height: 15px;
 }
+.project-icon svg {
+    width: 64px !important; 
+    height: 64px !important; 
+    color: inherit; 
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 img.svg {
     width: 15px;

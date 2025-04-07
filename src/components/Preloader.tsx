@@ -6,7 +6,6 @@ const Preloader = () => {
                     <div className="spinner"></div>
                 </div>
             </div> */}
-            <></>
         </>
     );
 };

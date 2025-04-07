@@ -1,24 +1,47 @@
-import { Button, Modal } from 'antd';
-import { useState } from 'react';
+import { Modal } from 'antd';
+import { JSX, useState } from 'react';
+import { FaReact, FaHtml5, FaCss3Alt, FaArrowRight } from 'react-icons/fa';
+
+interface IProjectDetail {
+    Description: string;
+    Technology: string;
+    Member: string;
+    Role: string;
+    Demo?: string;
+    Github?: string;
+}
+
+interface IProject {
+    icon: JSX.Element;
+    title: string;
+    shortDescription: string;
+    detail: IProjectDetail;
+}
 
 const Project = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedProject, setSelectedProject] = useState<IProject | null>(
+        null
+    );
 
-    const showModal = () => {
+    const showModal = (project: IProject) => {
+        setSelectedProject(project);
         setIsModalOpen(true);
     };
 
     const handleOk = () => {
         setIsModalOpen(false);
+        setSelectedProject(null);
     };
 
     const handleCancel = () => {
         setIsModalOpen(false);
+        setSelectedProject(null);
     };
 
-    const dataProject = [
+    const dataProject: IProject[] = [
         {
-            icon: 'img/svg/camera-diaphragm.svg',
+            icon: <FaReact size={64} color="#007bff" />,
             title: 'To do website',
             shortDescription:
                 'A simple to do website using React and Ant Design',
@@ -27,11 +50,12 @@ const Project = () => {
                 Technology: 'React, Ant Design, CSS',
                 Member: '1',
                 Role: 'Frontend Developer',
-                Github: '',
+                Demo: 'https://react.hoidanit.com.vn/',
+                Github: 'https://github.com/haryphamdev/react-ts-vite',
             },
         },
         {
-            icon: 'img/svg/new-tab.svg',
+            icon: <FaHtml5 size={64} color="#e34c26" />,
             title: 'Web Design',
             shortDescription: 'A modern web design project',
             detail: {
@@ -39,11 +63,10 @@ const Project = () => {
                 Technology: 'HTML, CSS, JavaScript',
                 Member: '2',
                 Role: 'UI/UX Designer',
-                Github: '',
             },
         },
         {
-            icon: 'img/svg/layers.svg',
+            icon: <FaCss3Alt size={64} color="#1572b6" />,
             title: 'Branding',
             shortDescription: 'A branding project for a startup',
             detail: {
@@ -51,25 +74,56 @@ const Project = () => {
                 Technology: 'Adobe Illustrator, Photoshop',
                 Member: '3',
                 Role: 'Graphic Designer',
-                Github: '',
             },
         },
     ];
 
     return (
         <>
-            <Button type="primary" onClick={showModal}>
-                Open Modal
-            </Button>
             <Modal
-                title="Basic Modal"
+                title={selectedProject?.title || 'Project Details'}
                 open={isModalOpen}
                 onOk={handleOk}
                 onCancel={handleCancel}
+                footer={null}
+                maskClosable={false}
             >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                {selectedProject && (
+                    <ul>
+                        <li>
+                            Description: {selectedProject.detail.Description}
+                        </li>
+                        <li>Technology: {selectedProject.detail.Technology}</li>
+                        <li>
+                            Number of member: {selectedProject.detail.Member}
+                        </li>
+                        <li>Role: {selectedProject.detail.Role}</li>
+                        {selectedProject.detail.Demo && (
+                            <li>
+                                Demo:
+                                <a
+                                    href={selectedProject.detail.Demo}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {selectedProject.detail.Demo}
+                                </a>
+                            </li>
+                        )}
+                        {selectedProject.detail.Github && (
+                            <li>
+                                Github:
+                                <a
+                                    href={selectedProject.detail.Github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {selectedProject.detail.Github}
+                                </a>
+                            </li>
+                        )}
+                    </ul>
+                )}
             </Modal>
             <div className="arlo_tm_section" id="projects">
                 <div className="arlo_tm_services_wrap">
@@ -84,11 +138,9 @@ const Project = () => {
                                     <li key={index}>
                                         <div className="inner">
                                             <div className="icon">
-                                                <img
-                                                    className="svg"
-                                                    src={project.icon}
-                                                    alt={project.title}
-                                                />
+                                                <div className="icon project-icon">
+                                                    {project.icon}
+                                                </div>
                                             </div>
                                             <div className="title_service">
                                                 <h3>{project.title}</h3>
@@ -97,6 +149,22 @@ const Project = () => {
                                                 <p>
                                                     {project.shortDescription}
                                                 </p>
+                                            </div>
+                                            <div
+                                                className="view_detail"
+                                                style={{ padding: '5px 0' }}
+                                            >
+                                                <span
+                                                    style={{
+                                                        cursor: 'pointer',
+                                                    }}
+                                                    onClick={() =>
+                                                        showModal(project)
+                                                    }
+                                                >
+                                                    <FaArrowRight />
+                                                    &nbsp; Xem Chi Tiết
+                                                </span>
                                             </div>
                                         </div>
                                     </li>
