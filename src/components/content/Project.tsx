@@ -50,30 +50,20 @@ const Project = () => {
                 Technology: 'React, Ant Design, CSS',
                 Member: '1',
                 Role: 'Frontend Developer',
-                Demo: 'https://react.hoidanit.com.vn/',
-                Github: 'https://github.com/haryphamdev/react-ts-vite',
+                Github: 'https://github.com/Duy-Duc82/to-do-app-react',
             },
         },
         {
             icon: <FaHtml5 size={64} color="#e34c26" />,
-            title: 'Web Design',
-            shortDescription: 'A modern web design project',
+            title: 'Nice Job',
+            shortDescription: 'a platform for job seekers and employers',
             detail: {
-                Description: 'Web design project with responsive layout',
-                Technology: 'HTML, CSS, JavaScript',
+                Description:
+                    'Nice Job is a platform for job seekers and employers to connect and find the right job or candidate.',
+                Technology: 'nestjs,MongoDB,React',
                 Member: '2',
-                Role: 'UI/UX Designer',
-            },
-        },
-        {
-            icon: <FaCss3Alt size={64} color="#1572b6" />,
-            title: 'Branding',
-            shortDescription: 'A branding project for a startup',
-            detail: {
-                Description: 'Branding project with logo design and guidelines',
-                Technology: 'Adobe Illustrator, Photoshop',
-                Member: '3',
-                Role: 'Graphic Designer',
+                Role: 'backend developer',
+                Github: 'https://github.com/Duy-Duc82/nestjs-back-end-for-NiceJob',
             },
         },
     ];
