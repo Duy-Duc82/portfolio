@@ -1,4 +1,4 @@
-import myCV from 'assets/CV.pdf';
+import myCV from 'assets/cv.pdf';
 import avtHoatHoa from 'assets/img/hero/avtHoatHoa.jpg';
 import { TypeAnimation } from 'react-type-animation';
 const About = () => {
