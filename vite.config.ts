@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 export default defineConfig({
+    base: '/portfolio/',
     plugins: [react(), visualizer() as PluginOption],
     resolve: {
         alias: {
