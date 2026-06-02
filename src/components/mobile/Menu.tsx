@@ -1,4 +1,4 @@
-import imgMobile from '@/assets/img/logo/mobile_logo.png';
+import imgMobile from '@/assets/img/logo/logo.svg';
 import { useState } from 'react';
 
 const MobileMenu = () => {
@@ -108,16 +108,18 @@ const MobileMenu = () => {
                             </li>
                             <li>
                                 <a
-                                    href="#project"
+                                    href="#projects"
                                     className={
-                                        activeTab === 'project' ? 'active' : ''
+                                        activeTab === 'projects'
+                                            ? 'active'
+                                            : ''
                                     }
                                     onClick={(
                                         event: React.MouseEvent<
                                             HTMLAnchorElement,
                                             MouseEvent
                                         >
-                                    ) => handleClickTab('project', event)}
+                                    ) => handleClickTab('projects', event)}
                                 >
                                     Projects
                                 </a>

@@ -1,4 +1,4 @@
-import desktopLogo from 'assets/img/logo/123.png';
+import desktopLogo from 'assets/img/logo/logo.svg';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { BsGithub } from 'react-icons/bs';
 import { useState, useEffect } from 'react';
@@ -108,16 +108,18 @@ const LeftPart = (props: IProps) => {
                             </li>
                             <li>
                                 <a
-                                    href="#project"
+                                    href="#projects"
                                     className={
-                                        activeTab === 'project' ? 'active' : ''
+                                        activeTab === 'projects'
+                                            ? 'active'
+                                            : ''
                                     }
                                     onClick={(
                                         event: React.MouseEvent<
                                             HTMLAnchorElement,
                                             MouseEvent
                                         >
-                                    ) => handleClickTab('project', event)}
+                                    ) => handleClickTab('projects', event)}
                                 >
                                     Projects
                                 </a>

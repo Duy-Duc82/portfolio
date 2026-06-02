@@ -1,4 +1,5 @@
 import myCV from 'assets/CV.pdf';
+import avtHoatHoa from 'assets/img/hero/avtHoatHoa.jpg';
 import { TypeAnimation } from 'react-type-animation';
 const About = () => {
     return (
@@ -21,15 +22,15 @@ const About = () => {
                                         data-depth="0.1"
                                     >
                                         <img
-                                            src="img/about/550x640.jpg"
-                                            alt="550x640"
+                                            src={avtHoatHoa}
+                                            alt="avatar"
                                         />
                                         <div
                                             className="inner"
-                                            data-img-url="img/about/1.jpg"
+                                            data-img-url={avtHoatHoa}
                                             style={{
                                                 backgroundImage:
-                                                    'url(img/about/1.jpg)',
+                                                    `url(${avtHoatHoa})`,
                                             }}
                                         ></div>
                                     </div>
@@ -38,8 +39,8 @@ const About = () => {
                                         data-depth="0.2"
                                     >
                                         <img
-                                            src="img/about/550x640.jpg"
-                                            alt="550x640"
+                                            src={avtHoatHoa}
+                                            alt="avatar"
                                         />
                                         <div className="inner"></div>
                                     </div>
@@ -97,7 +98,7 @@ const About = () => {
                                         </li>
                                         <li>
                                             <span>
-                                                <label>Age:</label> 20
+                                                <label>Age:</label> 21
                                             </span>
                                         </li>
                                         <li>

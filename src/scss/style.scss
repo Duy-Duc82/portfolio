@@ -236,6 +236,26 @@ svg {
     color: inherit; 
 }
 
+.project-detail-modal {
+    max-width: 92vw;
+
+    .ant-modal-body {
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+}
+
+.project-detail-list {
+    margin: 0;
+    padding-left: 18px;
+
+    li {
+        margin-bottom: 10px;
+        line-height: 1.5;
+        word-break: break-word;
+    }
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -385,15 +405,21 @@ img.svg {
 
     .logo_wrap {
         background-color: $background-color_2;
-        padding: 50px 20px;
+        padding: 30px 20px;
         width: 100%;
         float: left;
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: 35px;
         border-bottom: 1px solid rgba(255, 255, 255, .1);
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
+
+        img {
+            width: 84px;
+            height: 84px;
+            object-fit: contain;
+        }
     }
 
     .menu_list_wrap {
@@ -879,6 +905,9 @@ img.svg {
 
             img {
                 opacity: 0;
+                width: 100%;
+                height: auto;
+                display: block;
             }
         }
     }
@@ -1429,12 +1458,15 @@ img.svg {
         box-sizing: border-box;
 
         ul {
+            display: flex;
+            flex-wrap: wrap;
             margin: 0px 0px 0px -30px;
             list-style-type: none;
 
             li {
                 margin: 0px 0px 30px 0px;
-                float: left;
+                float: none;
+                display: flex;
                 width: 33.3333%;
                 padding-left: 30px;
                 -webkit-box-sizing: border-box;
@@ -1447,8 +1479,10 @@ img.svg {
                     clear: both;
                     float: left;
                     position: relative;
+                    height: 100%;
                     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
                     padding: 40px 40px 33px 40px;
+                    cursor: pointer;
                     top: 0px;
                     -webkit-transition: all .3s ease;
                     -moz-transition: all .3s ease;

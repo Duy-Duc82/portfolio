@@ -39,41 +39,85 @@ const Project = () => {
         setSelectedProject(null);
     };
 
+    const openProjectLink = (project: IProject) => {
+        if (project.detail.Github) {
+            window.open(project.detail.Github, '_blank', 'noopener,noreferrer');
+        }
+    };
+
     const dataProject: IProject[] = [
         {
             icon: <FaReact size={64} color="#007bff" />,
-            title: 'To do website',
+            title: 'BidSphere (Online Auction Platform)',
             shortDescription:
-                'A simple to do website using React and Ant Design',
+                'Nền tảng đấu giá trực tuyến full-stack: Spring Boot + React, WebSocket realtime, escrow, auto-bid.',
             detail: {
-                Description: 'To do website using React and Ant Design',
-                Technology: 'React, Ant Design, CSS',
-                Member: '1',
-                Role: 'Frontend Developer',
-                Demo: 'https://react.hoidanit.com.vn/',
-                Github: 'https://github.com/haryphamdev/react-ts-vite',
+                Description:
+                    'Nền tảng đấu giá trực tuyến full-stack mô phỏng quy trình đấu giá: quản lý vòng đời sản phẩm & phiên đấu giá, đặt giá thủ công và auto-bid, ví & giao dịch sau đấu giá (escrow), phân quyền theo vai trò, thông báo realtime qua WebSocket.',
+                Technology:
+                    'Backend: Java 21, Spring Boot 3.5.6, Spring Security + JWT, Spring Data JPA, MapStruct, Lombok, Spring WebSocket (STOMP/SockJS), Scheduling, Spring Mail, Cloudinary, Testing (Spring Boot Test/H2). Frontend: React 18, TypeScript, Vite, React Router, Axios (interceptors), SockJS/STOMP, Tailwind CSS/CSS modules, Radix UI, React Toastify, React Joyride.',
+                Member: '5',
+                Role: 'Full-stack Developer (tham gia phát triển cả frontend React và backend Spring Boot theo mô hình module)',
+                Github: 'https://github.com/Duy-Duc82/IT4409-BidSphere',
             },
         },
         {
-            icon: <FaHtml5 size={64} color="#e34c26" />,
-            title: 'Web Design',
-            shortDescription: 'A modern web design project',
+            icon: <FaReact size={64} color="#61dafb" />,
+            title: 'NiceJob (IT Job Portal)',
+            shortDescription:
+                'Hệ thống tuyển dụng IT full-stack: candidate site + admin/recruiter, RBAC, JWT + refresh token.',
             detail: {
-                Description: 'Web design project with responsive layout',
-                Technology: 'HTML, CSS, JavaScript',
+                Description:
+                    'Hệ thống tuyển dụng IT full-stack gồm giao diện ứng viên và trang admin/nhà tuyển dụng quản trị dữ liệu. Chức năng: đăng ký/đăng nhập, xem công ty & việc làm, nộp CV; admin quản lý users/companies/jobs/resumes/roles/permissions. Backend chuẩn hóa response, pagination/filter/sort, upload file, JWT + refresh token, RBAC theo permission, soft delete.',
+                Technology:
+                    'Frontend: React 18, TypeScript, Vite, Ant Design + Ant Design Pro, Redux Toolkit, Axios (refresh token), React Router, SCSS modules, Dayjs/Lodash/query-string, React Quill. Backend: NestJS 9, TypeScript, MongoDB + Mongoose, Passport (Local/JWT), bcryptjs, cookie-parser, Multer upload, RBAC guard, class-validator/ValidationPipe, api-query-params, Helmet, Throttler, Swagger, soft-delete-plugin-mongoose, mail scaffold (nodemailer/handlebars).',
                 Member: '2',
-                Role: 'UI/UX Designer',
+                Role: 'Full-stack Developer (NestJS backend + React frontend)',
+                Github: 'https://github.com/Duy-Duc82/nicejob',
             },
         },
         {
             icon: <FaCss3Alt size={64} color="#1572b6" />,
-            title: 'Branding',
-            shortDescription: 'A branding project for a startup',
+            title: 'E-Commerce Lambda Architecture',
+            shortDescription:
+                'Nền tảng phân tích dữ liệu lớn cho e-commerce theo Lambda Architecture, có ML pipeline.',
             detail: {
-                Description: 'Branding project with logo design and guidelines',
-                Technology: 'Adobe Illustrator, Photoshop',
-                Member: '3',
-                Role: 'Graphic Designer',
+                Description:
+                    'Nền tảng phân tích dữ liệu lớn cho e-commerce: ingestion qua Kafka, realtime Spark Streaming (đẩy Elasticsearch), batch ETL/ML bằng PySpark (đẩy Postgres DW), dashboard qua Kibana/Superset/Streamlit. Bài toán ML: trend analysis, anomaly detection, price forecast, fraud detection.',
+                Technology:
+                    'Kafka, Spark Streaming, PySpark, Redis, Elasticsearch + Kibana, MinIO (S3), PostgreSQL, Apache Superset, Streamlit, Docker Compose, Python 3.12+, Java 17+ (cho Spark).',
+                Member: '1',
+                Role: 'Data Engineer / Big Data Engineer',
+                Github: 'https://github.com/Duy-Duc82/ecommerce-lambda-architecture',
+            },
+        },
+        {
+            icon: <FaHtml5 size={64} color="#e34c26" />,
+            title: 'optimal-transport_KPG',
+            shortDescription:
+                'Repo nghiên cứu/thực nghiệm UDA (Unsupervised Domain Adaptation) với Office-Home dataset.',
+            detail: {
+                Description:
+                    'Repo nghiên cứu/thực nghiệm cho bài toán UDA, có hướng dẫn chạy thí nghiệm (Office-Home dataset) và script để tái tạo kết quả. Code có tham chiếu/borrow từ repo khác (RSDA).',
+                Technology:
+                    'Python (research code), shell scripts, Office-Home dataset (external).',
+                Member: '1',
+                Role: 'Researcher / ML Engineer',
+                Github: 'https://github.com/Duy-Duc82/optimal-transport_KPG',
+            },
+        },
+        {
+            icon: <FaReact size={64} color="#007bff" />,
+            title: 'to-do-app-react',
+            shortDescription:
+                'Project React tạo bằng Vite template để phát triển SPA (HMR, ESLint, React plugin).',
+            detail: {
+                Description:
+                    'Project React tạo bằng Vite template, cấu hình nền tảng để phát triển SPA (HMR, ESLint rules, React plugin).',
+                Technology: 'React, Vite, JavaScript.',
+                Member: '1',
+                Role: 'Frontend Developer',
+                Github: 'https://github.com/Duy-Duc82/to-do-app-react',
             },
         },
     ];
@@ -87,9 +131,11 @@ const Project = () => {
                 onCancel={handleCancel}
                 footer={null}
                 maskClosable={false}
+                width={900}
+                className="project-detail-modal"
             >
                 {selectedProject && (
-                    <ul>
+                    <ul className="project-detail-list">
                         <li>
                             Description: {selectedProject.detail.Description}
                         </li>
@@ -129,14 +175,30 @@ const Project = () => {
                 <div className="arlo_tm_services_wrap">
                     <div className="container">
                         <div className="arlo_tm_title_holder">
-                            <h3>My Project</h3>
+                            <h3>Các project của tôi</h3>
                             <span>Completed projects</span>
                         </div>
                         <div className="list_wrap">
                             <ul>
                                 {dataProject.map((project, index) => (
                                     <li key={index}>
-                                        <div className="inner">
+                                        <div
+                                            className="inner project-card"
+                                            role="link"
+                                            tabIndex={0}
+                                            onClick={() =>
+                                                openProjectLink(project)
+                                            }
+                                            onKeyDown={event => {
+                                                if (
+                                                    event.key === 'Enter' ||
+                                                    event.key === ' '
+                                                ) {
+                                                    event.preventDefault();
+                                                    openProjectLink(project);
+                                                }
+                                            }}
+                                        >
                                             <div className="icon">
                                                 <div className="icon project-icon">
                                                     {project.icon}
@@ -158,9 +220,10 @@ const Project = () => {
                                                     style={{
                                                         cursor: 'pointer',
                                                     }}
-                                                    onClick={() =>
-                                                        showModal(project)
-                                                    }
+                                                    onClick={event => {
+                                                        event.stopPropagation();
+                                                        showModal(project);
+                                                    }}
                                                 >
                                                     <FaArrowRight />
                                                     &nbsp; Xem Chi Tiết
